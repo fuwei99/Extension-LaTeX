@@ -1,0 +1,19 @@
+{
+    "id": "de1d8199-914f-40f7-85cd-a9b5d2ce2f3c",
+    "scriptName": "$$ - LaTeX",
+    "findRegex": "/^(?:\\s*)\\$\\$(.*)\\$\\$(?:\\s*)$/gm",
+    "replaceString": "```latex\n$1\n```",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2,
+        3
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": false,
+    "substituteRegex": false,
+    "minDepth": null,
+    "maxDepth": null
+}

@@ -22,6 +22,11 @@ for (const event of events) {
 
 async function renderMath() {
     const blocks = Array.from(document.querySelectorAll('#chat pre code'));
+
+    if (blocks.length === 0) {
+        return;
+    }
+
     const nodes = [];
     for (const block of blocks) {
         const isLatex = block.classList.contains('custom-language-latex');
@@ -32,9 +37,9 @@ async function renderMath() {
         }
 
         if (isAsciiMath) {
-            const asciiMath = block.innerText;
+            const asciiMath = block.textContent;
             const latex = asciiMathToLatex(asciiMath);
-            block.innerText = latex;
+            block.textContent = latex;
         }
 
         const parent = block.parentElement;
@@ -42,17 +47,17 @@ async function renderMath() {
         nodes.push(parent);
     }
 
-    const chatElement = document.getElementById('chat');
-    const chatHeight = chatElement.scrollHeight;
+    if (nodes.length === 0) {
+        return;
+    }
 
     for (const node of nodes) {
         katex.render(node.innerText, node, {
             throwOnError: false,
+            output: 'mathml',
         });
     }
 
-    const scrollPosition = chatElement.scrollTop;
-    const newChatHeight = chatElement.scrollHeight;
-    const diff = newChatHeight - chatHeight;
-    chatElement.scrollTop = scrollPosition + diff;
+    // Wait for the chat to update.
+    await new Promise((resolve) => setTimeout(resolve, 0));
 }

@@ -13,8 +13,19 @@ module.exports = {
                 test: /\.js/,
                 exclude: /node_modules/,
             },
+            {
+                test: /\.css/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                ],
+            },
         ],
     },
+    performance: {
+        hints: false,
+    },
+    stats: 'minimal',
     optimization: {
         minimize: true,
         minimizer: [new TerserPlugin({

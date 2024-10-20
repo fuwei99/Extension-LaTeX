@@ -1,0 +1,19 @@
+{
+    "id": "838408bd-7251-47b4-9cff-25e2d75e2bc6",
+    "scriptName": "$ - AsciiMath",
+    "findRegex": "/^(?:\\s*)\\$(.*)\\$(?:\\s*)$/gm",
+    "replaceString": "```asciimath\n$1\n```",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2,
+        3
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": false,
+    "substituteRegex": false,
+    "minDepth": null,
+    "maxDepth": null
+}
