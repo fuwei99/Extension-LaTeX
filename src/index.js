@@ -31,7 +31,7 @@ const katexOptions = {
         },
     ],
     throwOnError: false,
-    output: 'mathml',
+    output: 'htmlAndMathml',
 };
 
 // Renders KaTeX in a single provided message element's text container
